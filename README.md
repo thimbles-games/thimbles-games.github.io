@@ -1,4 +1,4 @@
-Thimbles game
+thimbles-games
 
 <div class="Box-sc-g0xbh4-0 bDycpP"><img alt="fon.png" src="https://thimbles-games.github.io/assets/www/fon.png?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 fzFXnm"></div>
 
