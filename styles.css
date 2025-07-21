@@ -1,14 +1,14 @@
 #goog-gt-tt {
-    display: none!important;
-    visibility: hidden!important
+    display: none !important;
+    visibility: hidden !important
 }
 
 .goog-te-banner-frame {
-    display: none!important
+    display: none !important
 }
 
 body {
-    top: 0!important
+    top: 0 !important
 }
 
 #corner-button {
@@ -16,19 +16,19 @@ body {
     top: 20px;
     left: 20px;
     padding: 10px 20px;
-    background: linear-gradient(135deg,#007bff,#00bfff);
+    background: linear-gradient(135deg, #007bff, #00bfff);
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
     transition: all .3s ease-in-out;
     z-index: 1000
 }
 
 #corner-button:hover {
-    background: linear-gradient(135deg,#0056b3,#0099cc);
+    background: linear-gradient(135deg, #0056b3, #0099cc);
     transform: scale(1.05)
 }
 
@@ -43,12 +43,12 @@ body {
     align-items: center;
     background: #f4f4f4;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
     max-width: 258px;
     min-height: 36px;
     padding: 5px 15px;
     z-index: 2000;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .goog-te-combo {
@@ -66,27 +66,29 @@ body {
     border-color: #007bff
 }
 
-.VIpgJd-ZVi9od-xl07Ob *,.VIpgJd-ZVi9od-vH1Gmf *,.VIpgJd-ZVi9od-l9xktf * {
-    font-family: "Arial",sans-serif!important;
-    font-size: 14px!important;
-    color: #333!important
+.VIpgJd-ZVi9od-xl07Ob *,
+.VIpgJd-ZVi9od-vH1Gmf *,
+.VIpgJd-ZVi9od-l9xktf * {
+    font-family: "Arial", sans-serif !important;
+    font-size: 14px !important;
+    color: #333 !important
 }
 
 .goog-te-gadget-simple {
-    background: #007bff!important;
-    color: white!important;
-    padding: 8px 12px!important;
-    border-radius: 6px!important;
-    font-size: 14px!important
+    background: #007bff !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    font-size: 14px !important
 }
 
 .goog-te-gadget-simple:hover {
-    background: #0056b3!important
+    background: #0056b3 !important
 }
 
 body {
-    font-family: 'Arial',sans-serif;
-    background: linear-gradient(135deg,#f0f4f8,#e0eaf1);
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #e0eaf1);
     color: #333;
     margin: 0;
     padding: 0;
@@ -97,13 +99,15 @@ body {
 }
 
 @viewport {
-    zoom:1;width: device-width;
+    zoom: 1;
+    width: device-width;
     initial-scale: 1;
     maximum-scale: 1;
     user-scalable: no
 }
 
-html,body {
+html,
+body {
     width: 100%;
     height: 100%;
     overflow: hidden
@@ -124,18 +128,20 @@ html,body {
     overflow: hidden
 }
 
-button,.control {
+button,
+.control {
     font-size: 16px;
     width: auto;
     height: auto
 }
 
-html,body {
+html,
+body {
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: Arial,sans-serif;
+    font-family: Arial, sans-serif;
     background: url('assets/www/fon.png') no-repeat center center fixed;
     background-size: cover;
     background-attachment: fixed;
@@ -148,7 +154,7 @@ html,body {
     -ms-user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-text-size-adjust: 100%;
     -webkit-user-drag: none;
     -webkit-user-modify: read-only;
@@ -231,24 +237,39 @@ body::after {
     }
 }
 
-.play-button,.button,.arrow-button,.exit-button,#feedbackButton,#submitReview {
+.play-button,
+.button,
+.arrow-button,
+.exit-button,
+#feedbackButton,
+#submitReview {
     padding: 10px 20px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     font-size: 16px;
     color: white;
-    background-image: linear-gradient(180deg,#41c6ff,#1a64fc),linear-gradient(180deg,#79cdfd,#1a64fc);
+    background-image: linear-gradient(180deg, #41c6ff, #1a64fc), linear-gradient(180deg, #79cdfd, #1a64fc);
     box-shadow: 0 0 20px 0 #3a7cffab;
-    transition: background-image .3s ease,box-shadow .3s ease
+    transition: background-image .3s ease, box-shadow .3s ease
 }
 
-.play-button:hover,.button:hover,.arrow-button:hover,.exit-button:hover,#feedbackButton:hover,#submitReview:hover {
+.play-button:hover,
+.button:hover,
+.arrow-button:hover,
+.exit-button:hover,
+#feedbackButton:hover,
+#submitReview:hover {
     background-color: #0056b3;
-    box-shadow: 0 0 2px rgba(255,255,0,.6)
+    box-shadow: 0 0 2px rgba(255, 255, 0, .6)
 }
 
-.play-button:active,.button:active,.arrow-button:active,.exit-button:active,#feedbackButton:active,#submitReview:active {
+.play-button:active,
+.button:active,
+.arrow-button:active,
+.exit-button:active,
+#feedbackButton:active,
+#submitReview:active {
     transform: translateY(0);
     box-shadow: none
 }
@@ -260,7 +281,7 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,.9);
+    background: rgba(0, 0, 0, .9);
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -303,12 +324,15 @@ body::after {
     box-sizing: border-box
 }
 
-#betButton,#startButton,#confirmButton,#resetButton {
+#betButton,
+#startButton,
+#confirmButton,
+#resetButton {
     width: 100px;
     height: 40px;
     margin: 0 10px;
     padding: 10px 20px;
-    background-image: linear-gradient(180deg,#41c6ff,#1a64fc),linear-gradient(180deg,#79cdfd,#1a64fc);
+    background-image: linear-gradient(180deg, #41c6ff, #1a64fc), linear-gradient(180deg, #79cdfd, #1a64fc);
     color: white;
     border: none;
     border-radius: 25px;
@@ -316,10 +340,13 @@ body::after {
     font-size: 16px;
     transform: translateX(40px);
     box-shadow: 0 0 20px 0 #3a7cffab;
-    transition: background-color .3s,box-shadow .3s ease
+    transition: background-color .3s, box-shadow .3s ease
 }
 
-#betButton:hover,#startButton:hover,#confirmButton:hover,#resetButton:hover {
+#betButton:hover,
+#startButton:hover,
+#confirmButton:hover,
+#resetButton:hover {
     box-shadow: 0 0 30px 5px #3a7cff;
     transform: translateX(40px) scale(1.02)
 }
@@ -333,9 +360,10 @@ body::after {
     background-color: #007bff
 }
 
-#startButton,#confirmButton {
+#startButton,
+#confirmButton {
     display: none;
-    box-shadow: 0 0 10px rgba(255,255,0,.2)
+    box-shadow: 0 0 10px rgba(255, 255, 0, .2)
 }
 
 #resetButton {
@@ -352,26 +380,25 @@ body::after {
     border-radius: 25px;
     cursor: pointer;
     font-size: 16px;
-    box-shadow: 0 0 2px rgba(255,255,0,.6);
-    transition: background-color .3s,box-shadow .3s
+    box-shadow: 0 0 2px rgba(255, 255, 0, .6);
+    transition: background-color .3s, box-shadow .3s
 }
 
 #resetButton.highlight {
     animation: highlightButton 2s infinite;
-    box-shadow: 0 0 10px rgba(244,244,0,.6)
+    box-shadow: 0 0 10px rgba(244, 244, 0, .6)
 }
 
 #notification {
     display: none;
-    position: absolute;
-    top: 20%;
-    margin-left: 125px;
-    left: 50%;
-    opacity: .5;
+    position: fixed;
+    top: 30%;
+    left: 90%;
+    transform: translate(-41%, -41%);
+    opacity: 0.5;
     height: auto;
     min-width: 100px;
     max-width: 300px;
-    transform: translateX(-50%);
     background-color: rgba(255,255,255,.5);
     color: #000000;
     padding: 15px 20px;
@@ -388,18 +415,18 @@ body::after {
     font-family: 'segoeprint';
     font-weight: bold;
     text-align: center;
-    word-wrap: break-word
+    word-wrap: break-word;
 }
 
 #notification span {
-    text-shadow: 1px 1px 3px rgba(255,255,255,.9);
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, .9);
     color: #000000
 }
 
 #notification:hover {
-    box-shadow: 0 12px 40px rgba(0,0,0,.3);
-    background-color: rgba(255,255,255,1);
-    background-image: linear-gradient(to right,#ffffff,#f0f0f0,#a0a0a0)
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
+    background-color: rgba(255, 255, 255, 1);
+    background-image: linear-gradient(to right, #ffffff, #f0f0f0, #a0a0a0)
 }
 
 #circle {
@@ -411,25 +438,25 @@ body::after {
     left: calc(50% - 60px);
     width: 10px;
     height: 12px;
-    background-color: rgba(255,255,255,.5);
+    background-color: rgba(255, 255, 255, .5);
     border-radius: 50%;
     z-index: 1000;
-    box-shadow: 0 8px 30px rgba(0,0,0,.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .2);
     backdrop-filter: blur(8px);
     border: 4px solid transparent;
-    background-image: linear-gradient(to right,#ffffff,#f0f0f0,#d0d0d0);
+    background-image: linear-gradient(to right, #ffffff, #f0f0f0, #d0d0d0);
     background-origin: border-box;
-    transition: box-shadow .3s ease,background-color .3s ease,background-image .3s ease
+    transition: box-shadow .3s ease, background-color .3s ease, background-image .3s ease
 }
 
 #circle:hover {
-    box-shadow: 0 12px 40px rgba(0,0,0,.3);
-    background-color: rgba(255,255,255,1);
-    background-image: linear-gradient(to right,#ffffff,#f0f0f0,#a0a0a0)
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
+    background-color: rgba(255, 255, 255, 1);
+    background-image: linear-gradient(to right, #ffffff, #f0f0f0, #a0a0a0)
 }
 
 .hidden {
-    display: none!important
+    display: none !important
 }
 
 #feedbackButton {
@@ -442,14 +469,14 @@ body::after {
     cursor: pointer;
     font-size: 16px;
     color: white;
-    background-image: linear-gradient(180deg,#41c6ff,#1a64fc),linear-gradient(180deg,#79cdfd,#1a64fc);
+    background-image: linear-gradient(180deg, #41c6ff, #1a64fc), linear-gradient(180deg, #79cdfd, #1a64fc);
     box-shadow: 0 0 20px 0 #3a7cffab;
-    transition: background-image .3s ease,box-shadow .3s ease
+    transition: background-image .3s ease, box-shadow .3s ease
 }
 
 #feedbackButton:hover {
     background-color: #0056b3;
-    box-shadow: 0 0 2px rgba(255,255,0,.6)
+    box-shadow: 0 0 2px rgba(255, 255, 0, .6)
 }
 
 #feedbackModal {
@@ -458,11 +485,11 @@ body::after {
     top: 50%;
     left: 5%;
     right: 5%;
-    transform: translate(0,-50%);
-    background-color: rgba(244,244,244,.95);
+    transform: translate(0, -50%);
+    background-color: rgba(244, 244, 244, .95);
     padding: 12.5px;
     border-radius: 6.25px;
-    box-shadow: 0 0 25px rgba(0,0,0,.9);
+    box-shadow: 0 0 25px rgba(0, 0, 0, .9);
     z-index: 1000;
     max-width: 2160px;
     text-align: center;
@@ -473,7 +500,7 @@ body::after {
     left: 50%;
     right: 100%;
     width: 100%;
-    transform: translate(-50%,-50%)
+    transform: translate(-50%, -50%)
 }
 
 #closeModal {
@@ -486,7 +513,7 @@ body::after {
     font-weight: bold;
     cursor: pointer;
     color: #B22222;
-    transition: color .3s,text-shadow .3s;
+    transition: color .3s, text-shadow .3s;
     z-index: 2
 }
 
@@ -503,7 +530,7 @@ body::after {
 
 #closeModal:hover {
     color: #FF6347;
-    text-shadow: 0 0 6.25px rgba(255,99,71,.8),0 0 12.5px rgba(255,99,71,.6),0 0 18.75px rgba(255,99,71,.4)
+    text-shadow: 0 0 6.25px rgba(255, 99, 71, .8), 0 0 12.5px rgba(255, 99, 71, .6), 0 0 18.75px rgba(255, 99, 71, .4)
 }
 
 .stars {
@@ -547,8 +574,8 @@ body::after {
     border-radius: 5px;
     margin-bottom: 20px;
     resize: none;
-    background-color: rgba(255,255,255,.9);
-    box-shadow: inset 0 0 5px rgba(0,0,0,.6)
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .6)
 }
 
 #reviewsChat {
@@ -563,9 +590,9 @@ body::after {
     border: 2px solid #ccc;
     border-radius: 5px;
     padding: 10px;
-    background-color: rgba(249,249,249,.9);
+    background-color: rgba(249, 249, 249, .9);
     text-align: left;
-    box-shadow: inset 0 0 5px rgba(0,0,0,.6)
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .6)
 }
 
 #submitReview {
@@ -577,9 +604,9 @@ body::after {
     border-radius: 30px;
     cursor: pointer;
     transform: translateX(0) scale(1.1);
-    background-image: linear-gradient(180deg,#41c6ff,#1a64fc),linear-gradient(180deg,#79cdfd,#1a64fc);
+    background-image: linear-gradient(180deg, #41c6ff, #1a64fc), linear-gradient(180deg, #79cdfd, #1a64fc);
     box-shadow: 0 0 20px 0 #3a7cffab;
-    transition: background-image .3s ease,box-shadow .3s ease
+    transition: background-image .3s ease, box-shadow .3s ease
 }
 
 #submitReview:hover {
@@ -615,7 +642,7 @@ body::after {
     transform: translateX(-50%);
     display: flex;
     gap: 2px;
-    box-shadow: 0 0 1px rgba(255,255,0,.6);
+    box-shadow: 0 0 1px rgba(255, 255, 0, .6);
     margin-left: -50px;
     padding: 0
 }
@@ -630,7 +657,7 @@ body::after {
     color: white;
     gap: 2px;
     transition: background-color .01s;
-    box-shadow: 0 0 2px rgba(255,255,0,.6);
+    box-shadow: 0 0 2px rgba(255, 255, 0, .6);
     margin: 0 9px
 }
 
@@ -660,11 +687,11 @@ body::after {
     font-size: 18px;
     padding: 10px;
     border-radius: 10px;
-    background-image: linear-gradient(180deg,#41c6ff,#1a64fc),linear-gradient(180deg,#79cdfd,#1a64fc);
+    background-image: linear-gradient(180deg, #41c6ff, #1a64fc), linear-gradient(180deg, #79cdfd, #1a64fc);
     box-shadow: 0 0 20px 0 #3a7cffab;
     color: white;
     cursor: pointer;
-    transition: background-image .3s ease,box-shadow .3s ease
+    transition: background-image .3s ease, box-shadow .3s ease
 }
 
 .score-bet .button:hover {
@@ -680,7 +707,7 @@ body::after {
 
 .bet-input {
     font-weight: bold;
-    background-color: white!important;
+    background-color: white !important;
     color: #1a64fc;
     box-shadow: 0 0 4px 0 #0000ff;
     text-align: center;
@@ -701,12 +728,12 @@ body::after {
 }
 
 input::placeholder {
-    color: #1a64fc!important;
+    color: #1a64fc !important;
     opacity: 1
 }
 
 .bet-input::placeholder {
-    color: rgba(0,0,0,.5);
+    color: rgba(0, 0, 0, .5);
     opacity: 1
 }
 
@@ -719,7 +746,7 @@ input::placeholder {
     font-weight: bold;
     color: #ff0;
     animation: increaseBalance 3s linear;
-    box-shadow: 0 0 2px rgba(255,255,0,1.1)
+    box-shadow: 0 0 2px rgba(255, 255, 0, 1.1)
 }
 
 .exit-button {
@@ -734,17 +761,17 @@ input::placeholder {
     cursor: pointer;
     font-size: 16px;
     color: white;
-    box-shadow: 0 0 2px rgba(255,255,0,.2);
-    background-image: linear-gradient(180deg,#41c6ff,#1a64fc),linear-gradient(180deg,#79cdfd,#1a64fc);
-    transition: background-image .3s ease,box-shadow .3s ease;
+    box-shadow: 0 0 2px rgba(255, 255, 0, .2);
+    background-image: linear-gradient(180deg, #41c6ff, #1a64fc), linear-gradient(180deg, #79cdfd, #1a64fc);
+    transition: background-image .3s ease, box-shadow .3s ease;
     display: flex;
     align-items: center;
     justify-content: center
 }
 
 .exit-button:hover {
-    background-image: linear-gradient(180deg,#b300ff,#8a2be2);
-    box-shadow: 0 0 2px rgba(255,255,0,.6)
+    background-image: linear-gradient(180deg, #b300ff, #8a2be2);
+    box-shadow: 0 0 2px rgba(255, 255, 0, .6)
 }
 
 .exit-button:active {
@@ -764,23 +791,23 @@ input::placeholder {
 
 @keyframes highlightButton {
     0% {
-        box-shadow: 0 0 10px 2px rgba(255,255,0,.8);
+        box-shadow: 0 0 10px 2px rgba(255, 255, 0, .8);
         transform: scale(1)
     }
 
     50% {
-        box-shadow: 0 0 20px 4px rgba(255,255,0,1);
+        box-shadow: 0 0 20px 4px rgba(255, 255, 0, 1);
         transform: scale(1.05)
     }
 
     100% {
-        box-shadow: 0 0 10px 2px rgba(255,255,0,.8);
+        box-shadow: 0 0 10px 2px rgba(255, 255, 0, .8);
         transform: scale(1)
     }
 }
 
 body {
-    font-family: Arial,sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -809,7 +836,8 @@ footer {
     width: 100%
 }
 
-h1,h2 {
+h1,
+h2 {
     margin: 10px 0
 }
 
@@ -839,9 +867,9 @@ a:hover {
     min-width: 250px
 }
 
-@media (max-width: 480px) {
+@media (max-width:480px) {
     header {
-        padding:15px 10px;
+        padding: 15px 10px;
         font-size: 16px
     }
 
@@ -870,9 +898,9 @@ a:hover {
     }
 }
 
-@media (max-width: 250px) {
+@media (max-width:250px) {
     header {
-        font-size:14px
+        font-size: 14px
     }
 
     footer {
@@ -902,21 +930,21 @@ a:hover {
     background-size: cover;
     background-position: center;
     cursor: pointer;
-    transition: transform .1s,top .1s,left .1s;
-    transform: translate(-50%,-50%);
+    transition: transform .1s, top .1s, left .1s;
+    transform: translate(-50%, -50%);
     border-radius: 5px;
     opacity: .95
 }
 
 .cup:hover {
-    transform: translate(-50%,-50%) scale(1.15)
+    transform: translate(-50%, -50%) scale(1.15)
 }
 
 :root {
     --ball-size: 14px;
     --ball-color: #ffcc00;
-    --highlight-color: rgba(255,255,255,.8);
-    --shadow-color: rgba(0,0,0,.3)
+    --highlight-color: rgba(255, 255, 255, .8);
+    --shadow-color: rgba(0, 0, 0, .3)
 }
 
 .ball {
@@ -929,7 +957,7 @@ a:hover {
     background: var(--ball-color);
     border-radius: 50%;
     box-shadow: 0 2px 4px var(--shadow-color);
-    filter: drop-shadow(0 3px 3px rgba(0,0,0,.4))
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, .4))
 }
 
 .ball::before {
@@ -938,7 +966,7 @@ a:hover {
     top: 15%;
     width: 30%;
     height: 30%;
-    background: radial-gradient(circle at 50% 50%,rgba(255,255,255,.9) 1%,rgba(255,255,255,0) 7%);
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .9) 1%, rgba(255, 255, 255, 0) 7%);
     border-radius: 50%;
     transform: rotate(45deg)
 }
@@ -949,7 +977,7 @@ a:hover {
     bottom: -4.6px;
     width: 2px;
     height: 6.6px;
-    background: radial-gradient(ellipse at center,var(--shadow-color) 30%,transparent 70%);
+    background: radial-gradient(ellipse at center, var(--shadow-color) 30%, transparent 70%);
     transform: translateX(-50%);
     z-index: -1
 }
