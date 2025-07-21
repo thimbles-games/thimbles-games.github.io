@@ -1,1 +1,411 @@
-function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"ru",autoDisplay:!1,includedLanguages:"en,es,de,fr,it,zh,ar,ja,pt",layout:google.translate.TranslateElement.InlineLayout.SIMPLE},"google_translate_element")}function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"ru",includedLanguages:"en,es,fr,de,zh-CN,ja",layout:google.translate.TranslateElement.InlineLayout.SIMPLE},"google_translate_element")}window.addEventListener("resize",(function(){const e=window.innerWidth,t=window.innerHeight;document.querySelector(".container").style.width=`${e}px`,document.querySelector(".container").style.height=`${t}px`})),document.addEventListener("wheel",(function(e){e.ctrlKey&&e.preventDefault()}),{passive:!1});const NotificationManager=(()=>{const e=document.getElementById("notification"),t=document.getElementById("circle");let n=[];return{showNotification:(o,a=1500)=>{n.forEach(clearTimeout),n=[],t.style.display="none",e.style.display="none",e.textContent=o,e.style.width="auto",e.style.height="auto",e.style.display="block";const i=e.offsetWidth;e.style.left=`calc(50% - ${i/2}px)`;const l=setTimeout((()=>{e.style.display="none"}),a);n.push(l)}}})();function enterFullscreen(){const e=document.documentElement;e.requestFullscreen?e.requestFullscreen():e.mozRequestFullScreen?e.mozRequestFullScreen():e.webkitRequestFullscreen?e.webkitRequestFullscreen():e.msRequestFullscreen&&e.msRequestFullscreen()}function exitFullscreen(){document.exitFullscreen?document.exitFullscreen():document.mozCancelFullScreen?document.mozCancelFullScreen():document.webkitExitFullscreen?document.webkitExitFullscreen():document.msExitFullscreen&&document.msExitFullscreen()}window.onload=()=>{enterFullscreen(),NotificationManager.showNotification("одолжи бабки и начнём",3200)},document.addEventListener("fullscreenchange",(()=>{document.fullscreenElement?(document.body.style.overflow="hidden",document.body.style.marginTop="0",document.body.style.marginBottom="0"):(document.body.style.overflow="",document.body.style.marginTop="",document.body.style.marginBottom="")}));let isNotificationActive=!1;document.querySelectorAll("button").forEach((e=>{e.addEventListener("click",(()=>{if(isNotificationActive){const e=document.getElementById("notification");e&&(e.style.display="none"),isNotificationActive=!1}}))})),document.getElementById("scoreButton").addEventListener("click",(()=>{const e=(e,t)=>new Promise((n=>{isNotificationActive?(NotificationManager.showNotification(e,t),setTimeout(n,t)):n()})),t=e=>new Promise((t=>setTimeout(t,e)));(async()=>{const n=["щас скажу","казик с лицензией","вывод без верификации","много бонусов","турниров","куча фри-спинов","мгновенный вывод","PIASTRIX, USDT","карты Мир"];if(isNotificationActive=!0,await e(n[0],1e3),!isNotificationActive)return;const o=document.createElement("img");o.src="assets/www/qrcode2.png",o.style.position="fixed",o.style.top="50%",o.style.left="50%",o.style.transform="translate(-50%, -50%)",o.style.zIndex="1",document.body.appendChild(o);for(let t=1;t<n.length&&(await e(n[t],2e3),isNotificationActive);t++);isNotificationActive?(await t(100),document.body.removeChild(o),isNotificationActive=!1):document.body.removeChild(o)})()}));const betButton=document.getElementById("betButton"),betValues=[10,20,50,100,200,500];let betIndex=0;betButton.addEventListener("click",(()=>{betInput.value=betValues[betIndex],betIndex=(betIndex+1)%betValues.length,NotificationManager.showNotification(`bet ${betInput.value} ₽`,1200)}));let fullscreenAlert=document.getElementById("fullscreenAlert"),timerDisplay=document.getElementById("timer"),timerDuration=30;function showAlert(){"flex"!==fullscreenAlert.style.display&&(fullscreenAlert.style.display="flex",startTimer())}function startTimer(){let e=timerDuration;timerDisplay.textContent=e;let t=setInterval((()=>{e--,timerDisplay.textContent=e,e<=0&&(clearInterval(t),fullscreenAlert.style.display="none")}),1e3)}setInterval(showAlert,1e3);const muteButton=document.getElementById("muteButton"),muteIcon=document.getElementById("muteIcon"),sound50=document.getElementById("sound50");let isMuted=!1;muteButton.addEventListener("click",(()=>{isMuted=!isMuted,sound50.muted=isMuted,muteIcon.src=isMuted?"assets/www/off.png":"assets/www/on.png",NotificationManager.showNotification(isMuted?"втихую решил":"станцуем",1500)}));const feedbackButton=document.getElementById("feedbackButton"),feedbackModal=document.getElementById("feedbackModal"),closeModal=document.getElementById("closeModal"),stars=document.querySelectorAll(".stars span"),reviewText=document.getElementById("reviewText"),reviewsChat=document.getElementById("reviewsChat"),submitReview=document.getElementById("submitReview");let selectedRating=0;feedbackButton.addEventListener("click",(()=>{feedbackModal.style.display="block"})),closeModal.addEventListener("click",(()=>{feedbackModal.style.display="none"})),stars.forEach((e=>{e.addEventListener("click",(()=>{selectedRating=e.getAttribute("data-value"),stars.forEach((e=>e.classList.remove("active")));for(let e=0;e<selectedRating;e++)stars[e].classList.add("active")}))})),submitReview.addEventListener("click",(()=>{const e=reviewText.value.trim();if(e&&selectedRating>0){const t=document.createElement("div");t.innerHTML=`<strong>${selectedRating} звезд:</strong> ${e}`,reviewsChat.appendChild(t),reviewText.value="",selectedRating=0,stars.forEach((e=>e.classList.remove("active"))),NotificationManager.showNotification("Спасибо за ваш отзыв!")}else NotificationManager.showNotification("звезду не нажал ≧◠‿◠≦✌.",1500)})),window.addEventListener("click",(e=>{e.target===feedbackModal&&(feedbackModal.style.display="none")}));const cups=[{id:1,x:0,y:0},{id:2,x:0,y:0},{id:3,x:0,y:0}];let ballUnder=0,gameOver=!1,gameRunning=!1,playerBalance=0,currentBet=0,canSelectCup=!1;const startButton=document.getElementById("startButton"),confirmButton=document.getElementById("confirmButton"),resetButton=document.getElementById("resetButton"),notification=document.getElementById("notification"),scoreButton=document.getElementById("scoreButton"),betInput=document.getElementById("betInput");let betButtonClicked=!1,startButtonClicked=!1;betButton.addEventListener("click",(()=>{betButtonClicked=!0})),startButton.addEventListener("click",(()=>{startButtonClicked=!0,NotificationManager.showNotification("запомнил где шарик",2e3)})),confirmButton.addEventListener("click",(()=>{betButtonClicked&&startButtonClicked?confirmStart():NotificationManager.showNotification("делай ставку",1500)}));const updatePositions=()=>{const e=layers.offsetWidth,t=layers.offsetHeight,n=(e-(35*cups.length+30*(cups.length-1)))/2,o=t/2;cups.forEach(((e,t)=>{e.x=n+65*t,e.y=o;const a=document.querySelector(`.cup[data-id="${e.id}"]`);a.style.left=`${e.x}px`,a.style.top=`${e.y}px`}))};let currentMove=3;const ballPositions=[3,2,1,2,3,1,2,3,1,3,2,1,3,1,2],shuffleCups=()=>new Promise((e=>{canSelectCup=!1;document.querySelector(".ball").style.display="none",setTimeout((async()=>{const t=[[cups[0],cups[1]],[cups[1],cups[2]],[cups[0],cups[2]]];for(let e=0;e<2;e++)for(let e=0;e<t.length;e++){const[n,o]=t[e],a={x:(n.x+o.x)/2,y:(n.y+o.y)/2};await rotatePairSmooth(n,o,a,360,150),e<t.length-1&&await sleep(250)}if(currentMove<15)ballUnder=ballPositions[currentMove];else{ballUnder=ballPositions[(currentMove-15)%14+1]||1}currentMove++,updatePositions(),canSelectCup=!0,NotificationManager.showNotification("какой наперсток ?",1500),e()}),500)})),sleep=e=>new Promise((t=>setTimeout(t,e))),rotatePairSmooth=(e,t,n,o,a)=>new Promise((i=>{const l=performance.now(),s=o*Math.PI/180,c=Math.sqrt((e.x-n.x)**2+(e.y-n.y)**2),r=o=>{const d=o-l,u=Math.min(d/a,1),m=0+s*u;e.x=n.x+c*Math.cos(m),e.y=n.y+c*Math.sin(m),t.x=n.x+c*Math.cos(m+Math.PI),t.y=n.y+c*Math.sin(m+Math.PI);const y=document.querySelector(`.cup[data-id="${e.id}"]`),p=document.querySelector(`.cup[data-id="${t.id}"]`);y&&p&&(y.style.left=`${e.x}px`,y.style.top=`${e.y}px`,p.style.left=`${t.x}px`,p.style.top=`${t.y}px`),u<1?requestAnimationFrame(r):i()};requestAnimationFrame(r)})),preloadImages=e=>{const t=[];return e.forEach((e=>{const n=new Image;n.src=e,t.push(n)})),t};preloadImages(["assets/www/fon.png","assets/www/fon2.png","assets/www/fon3.png"]);const changeBackground=(e,t)=>{document.body.style.backgroundImage=`url('${e}')`,setTimeout((()=>{document.body.style.backgroundImage='url("assets/www/fon.png")'}),t)};handleClick=e=>{if(!canSelectCup||gameOver)return;const t=document.querySelector(`.cup[data-id="${e}"]`),n=document.querySelector(".ball");if(canSelectCup=!1,t.classList.contains("active"))return;const o=parseInt(window.getComputedStyle(t).top,10);t.style.top=o-35+"px",t.classList.add("active"),setTimeout((()=>{e===ballUnder?(n.style.left=`${cups[e-1].x}px`,n.style.top=`${cups[e-1].y}px`,n.style.display="block",document.body.style.backgroundImage='url("assets/www/fon.png")',changeBackground("assets/www/fon2.png",700),setTimeout((()=>{n.style.display="none"}),500)):(document.body.style.backgroundImage='url("assets/www/fon.png")',n.style.display="none",changeBackground("assets/www/fon3.png",700))}),200),setTimeout((()=>{t.style.top=`${o}px`,t.classList.remove("active")}),700),window.addEventListener("resize",(()=>{updatePositions()}));setTimeout((()=>{e===ballUnder?(playerBalance+=currentBet,scoreButton.textContent=`${playerBalance} ₽`,NotificationManager.showNotification(` + ${currentBet} ₽`,1500)):(playerBalance-=currentBet,scoreButton.textContent=`${playerBalance} ₽`,NotificationManager.showNotification(` - ${currentBet} ₽`,1500)),gameOver=!0,resetButton.disabled=!1,startButton.disabled=!1}),1e3)};let difficultyLevel=2;const startGame=()=>{if(gameRunning)return;gameRunning=!0;ballUnder=Math.floor(3*Math.random())+1,gameOver=!1,resetButton.disabled=!0,confirmButton.disabled=!1,startButton.disabled=!0;const e=document.querySelector(".ball");e.style.display="none";const t=document.querySelector(`.cup[data-id="${ballUnder}"]`);if(t){const n=parseInt(window.getComputedStyle(t).top,10);t.style.top=n-30+"px",setTimeout((()=>{e.style.left=`${cups[ballUnder-1].x}px`,e.style.top=`${cups[ballUnder-1].y}px`,e.style.display="block",setTimeout((()=>{t.style.top=`${n}px`,e.style.display="none",updatePositions()}),625)}),125)}difficultyLevel<5&&difficultyLevel++},confirmStart=async()=>{const e=parseInt(betInput.value);if(isNaN(e)||e<=0||e>playerBalance)return void NotificationManager.showNotification("делай ставку",1500);currentBet=e;document.querySelector(".ball").style.display="none",confirmButton.disabled=!0,canSelectCup=!1,await new Promise((e=>{canSelectCup=!1,document.querySelector(".ball").style.display="none",setTimeout((async()=>{const t=[[cups[0],cups[1]],[cups[1],cups[2]],[cups[0],cups[2]]];for(let e=0;e<2;e++)for(let e=0;e<t.length;e++){const[n,o]=t[e],a={x:(n.x+o.x)/2,y:(n.y+o.y)/2};await rotatePairSmooth(n,o,a,360,150),e<t.length-1&&await sleep(250)}ballUnder=currentMove<15?ballPositions[currentMove]:ballPositions[(currentMove-15)%14+1]||1,currentMove++,updatePositions(),canSelectCup=!0,NotificationManager.showNotification("какой наперсток ?",1500),e()}),500)})),cups.forEach((e=>{document.querySelector(`.cup[data-id="${e.id}"]`).onclick=()=>handleClick(e.id)})),canSelectCup=!0,gameRunning=!1},resetGame=()=>{playerBalance<=0?(NotificationManager.showNotification("Да кто тебе займет нищеброд.",1500),updateUIAfterLoss()):(playerBalance=2e3,scoreButton.textContent=`Баланс: ${playerBalance}`,betInput.value="",NotificationManager.showNotification("нашел бабки сыграем",1500),updateUIAfterLoss())},updateUIAfterLoss=()=>{playerBalance<=0?(betButton.style.display="none",startButton.style.display="none",confirmButton.style.display="none",resetButton.style.display="inline-block",resetButton.disabled=!1):(betButton.style.display="inline-block",startButton.style.display="inline-block",confirmButton.style.display="inline-block",resetButton.style.display="none")},borrowMoney=()=>{if(0===playerBalance){sound50.play();const e=Math.floor(901*Math.random())+100;playerBalance+=e,scoreButton.textContent=` ${playerBalance}`,NotificationManager.showNotification(`займ  ${playerBalance}`),updateUIAfterLoss()}},updateBorrowButton=()=>{resetButton.disabled=!1,sound50.play()};document.addEventListener("DOMContentLoaded",(()=>{const e=document.getElementById("decrement"),t=document.getElementById("increment"),n=document.getElementById("betInput");if(!e||!t||!n)return;const o=parseInt(n.getAttribute("min"))||1,a=parseInt(n.getAttribute("max"))||1e3;e.addEventListener("click",(()=>{let e=parseInt(n.value)||o;n.value=Math.max(o,e-1)})),t.addEventListener("click",(()=>{let e=parseInt(n.value)||o;n.value=Math.min(a,e+1)})),n.addEventListener("input",(()=>{let e=parseInt(n.value);isNaN(e)||e<o?n.value=o:e>a&&(n.value=a)}))}));let initialScale=window.devicePixelRatio||1;function adjustScale(){const e=window.devicePixelRatio||1,t=initialScale/e;document.body.style.transform=`scale(${t})`,document.body.style.transformOrigin="0 0",document.body.style.width=100/t+"%",document.body.style.height=100/t+"%"}window.addEventListener("resize",adjustScale),window.addEventListener("DOMContentLoaded",adjustScale),resetButton.onclick=borrowMoney,startButton.onclick=startGame,confirmButton.onclick=confirmStart,updatePositions(),document.querySelector(".exit-button").addEventListener("click",(function(){window.AndroidInterface?window.AndroidInterface.exitToHomeScreen():window.location.href="https://www.google.com"}));const ball=document.createElement("div");ball.className="ball",updatePositions(),resetButton.disabled=!1,sound50.play();
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: "ru",
+        includedLanguages: "en,es,fr,de,zh-CN,ja",
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, "google_translate_element");
+}
+window.addEventListener("resize", function() {
+    const e = window.innerWidth,
+        t = window.innerHeight;
+});
+document.addEventListener("wheel", (function(e) {
+    e.ctrlKey && e.preventDefault()
+}), {
+    passive: !1
+});
+const NotificationManager = (() => {
+    const e = document.getElementById("notification"),
+        t = document.getElementById("circle");
+    let n = [];
+    return {
+        showNotification: (o, a = 1500) => {
+            n.forEach(clearTimeout);
+            n = [];
+            t.style.display = "none";
+            e.style.display = "none";
+            e.textContent = o;
+            e.style.width = "auto";
+            e.style.height = "auto";
+            e.style.display = "block";
+            const i = e.offsetWidth;
+            e.style.left = `calc(50% - ${i / 2}px)`;
+            const l = setTimeout((() => {
+                e.style.display = "none";
+            }), a);
+            n.push(l);
+        }
+    };
+})();
+function enterFullscreen() {
+    const e = document.documentElement;
+    e.requestFullscreen ? e.requestFullscreen() : e.mozRequestFullScreen ? e.mozRequestFullScreen() : e.webkitRequestFullscreen ? e.webkitRequestFullscreen() : e.msRequestFullscreen && e.msRequestFullscreen()
+}
+function exitFullscreen() {
+    document.exitFullscreen ? document.exitFullscreen() : document.mozCancelFullScreen ? document.mozCancelFullScreen() : document.webkitExitFullscreen ? document.webkitExitFullscreen() : document.msExitFullscreen && document.msExitFullscreen()
+}
+window.onload = () => {
+    NotificationManager.showNotification("одолжи бабки и начнём", 3200)
+};
+document.addEventListener("fullscreenchange", (() => {
+    document.fullscreenElement ? (document.body.style.overflow = "hidden", document.body.style.marginTop = "0", document.body.style.marginBottom = "0") : (document.body.style.overflow = "", document.body.style.marginTop = "", document.body.style.marginBottom = "")
+}));
+let isNotificationActive = !1;
+document.querySelectorAll("button").forEach((e => {
+    e.addEventListener("click", (() => {
+        if (isNotificationActive) {
+            const e = document.getElementById("notification");
+            e && (e.style.display = "none");
+            isNotificationActive = !1;
+        }
+    }));
+}));
+document.getElementById("scoreButton").addEventListener("click", (() => {
+    const e = (e, t) => new Promise((n => {
+        isNotificationActive ? (NotificationManager.showNotification(e, t), setTimeout(n, t)) : n();
+    }));
+    const t = e => new Promise((t => setTimeout(t, e)));
+    (async() => {
+        const n = ["щас скажу", "казик с лицензией", "вывод без верификации", "много бонусов", "турниров", "куча фри-спинов", "мгновенный вывод", "PIASTRIX, USDT", "карты Мир"];
+        if (isNotificationActive = !0, await e(n[0], 1e3), !isNotificationActive) return;
+        const o = document.createElement("img");
+        o.src = "assets/www/qrcode2.png";
+        o.style.position = "fixed";
+        o.style.top = "50%";
+        o.style.left = "50%";
+        o.style.transform = "translate(-50%, -50%)";
+        o.style.zIndex = "1";
+        document.body.appendChild(o);
+        for (let t = 1; t < n.length && (await e(n[t], 2e3), isNotificationActive); t++);
+        isNotificationActive ? (await t(100), document.body.removeChild(o), isNotificationActive = !1) : document.body.removeChild(o);
+    })();
+}));
+const betButton = document.getElementById("betButton"),
+    betValues = [10, 20, 50, 100, 200, 500];
+let betIndex = 0;
+betButton.addEventListener("click", (() => {
+    betInput.value = betValues[betIndex];
+    betIndex = (betIndex + 1) % betValues.length;
+    NotificationManager.showNotification(`bet ${betInput.value} ₽`, 1200)
+}));
+const muteButton = document.getElementById("muteButton"),
+    muteIcon = document.getElementById("muteIcon"),
+    sound50 = document.getElementById("sound50");
+let isMuted = !1;
+if (muteButton && muteIcon && sound50) {
+    muteButton.addEventListener("click", () => {
+        isMuted = !isMuted;
+        sound50.muted = isMuted;
+        muteIcon.src = isMuted ? "assets/www/off.png" : "assets/www/on.png";
+        NotificationManager.showNotification(isMuted ? "втихую решил" : "станцуем", 1500);
+    });
+}
+const feedbackButton = document.getElementById("feedbackButton"),
+    feedbackModal = document.getElementById("feedbackModal"),
+    closeModal = document.getElementById("closeModal"),
+    stars = document.querySelectorAll(".stars span"),
+    reviewText = document.getElementById("reviewText"),
+    reviewsChat = document.getElementById("reviewsChat"),
+    submitReview = document.getElementById("submitReview");
+let selectedRating = 0;
+if (feedbackButton && feedbackModal && closeModal && stars && reviewText && reviewsChat && submitReview) {
+    feedbackButton.addEventListener("click", () => {
+        feedbackModal.style.display = "block";
+    });
+    closeModal.addEventListener("click", () => {
+        feedbackModal.style.display = "none";
+    });
+    stars.forEach((e) => {
+        e.addEventListener("click", () => {
+            selectedRating = e.getAttribute("data-value");
+            stars.forEach((e) => e.classList.remove("active"));
+            for (let i = 0; i < selectedRating; i++)
+                stars[i].classList.add("active");
+        });
+    });
+    submitReview.addEventListener("click", () => {
+        const e = reviewText.value.trim();
+        if (e && selectedRating > 0) {
+            const t = document.createElement("div");
+            t.innerHTML = `<strong>${selectedRating} звезд:</strong> ${e}`;
+            reviewsChat.appendChild(t);
+            reviewText.value = "";
+            selectedRating = 0;
+            stars.forEach((e) => e.classList.remove("active"));
+            NotificationManager.showNotification("Спасибо за ваш отзыв!");
+        } else {
+            NotificationManager.showNotification("звезду не нажал ≧◠‿◠≦✌.", 1500);
+        }
+    });
+    window.addEventListener("click", (e) => {
+        if (e.target === feedbackModal) feedbackModal.style.display = "none";
+    });
+}
+const cups = [{
+    id: 1,
+    x: 0,
+    y: 0
+}, {
+    id: 2,
+    x: 0,
+    y: 0
+}, {
+    id: 3,
+    x: 0,
+    y: 0
+}];
+let ballUnder = 0,
+    gameOver = !1,
+    gameRunning = !1,
+    playerBalance = 0,
+    currentBet = 0,
+    canSelectCup = !1;
+const startButton = document.getElementById("startButton"),
+    confirmButton = document.getElementById("confirmButton"),
+    resetButton = document.getElementById("resetButton"),
+    notification = document.getElementById("notification"),
+    scoreButton = document.getElementById("scoreButton"),
+    betInput = document.getElementById("betInput");
+let betButtonClicked = !1,
+    startButtonClicked = !1;
+betButton.addEventListener("click", (() => {
+    betButtonClicked = !0
+}));
+startButton.addEventListener("click", (() => {
+    startButtonClicked = !0;
+    NotificationManager.showNotification("запомнил где шарик", 2e3)
+}));
+confirmButton.addEventListener("click", (() => {
+    betButtonClicked && startButtonClicked ? confirmStart() : NotificationManager.showNotification("делай ставку", 1500)
+}));
+const updatePositions = () => {
+    const e = layers.offsetWidth,
+        t = layers.offsetHeight,
+        n = (e - (35 * cups.length + 30 * (cups.length - 1))) / 2,
+        o = t / 2;
+    cups.forEach(((e, t) => {
+        e.x = n + 65 * t;
+        e.y = o;
+        const a = document.querySelector(`.cup[data-id="${e.id}"]`);
+        a.style.left = `${e.x}px`;
+        a.style.top = `${e.y}px`
+    }));
+};
+let currentMove = 3;
+const ballPositions = [3, 2, 1, 2, 3, 1, 2, 3, 1, 3, 2, 1, 3, 1, 2],
+    shuffleCups = () => new Promise((e => {
+        canSelectCup = !1;
+        document.querySelector(".ball").style.display = "none";
+        setTimeout((async() => {
+            const t = [[cups[0], cups[1]], [cups[1], cups[2]], [cups[0], cups[2]]];
+            for (let e = 0; e < 2; e++)
+                for (let e = 0; e < t.length; e++) {
+                    const [n, o] = t[e],
+                        a = {
+                            x: (n.x + o.x) / 2,
+                            y: (n.y + o.y) / 2
+                        };
+                    await rotatePairSmooth(n, o, a, 360, 150);
+                    e < t.length - 1 && await sleep(250)
+                }
+            if (currentMove < 15) ballUnder = ballPositions[currentMove];
+            else {
+                ballUnder = ballPositions[(currentMove - 15) % 14 + 1] || 1
+            }
+            currentMove++;
+            updatePositions();
+            canSelectCup = !0;
+            NotificationManager.showNotification("какой наперсток ?", 1500);
+            e()
+        }), 500)
+    })),
+    sleep = e => new Promise((t => setTimeout(t, e))),
+    rotatePairSmooth = (e, t, n, o, a) => new Promise((i => {
+        const l = performance.now(),
+            s = o * Math.PI / 180,
+            c = Math.sqrt((e.x - n.x) ** 2 + (e.y - n.y) ** 2),
+            r = o => {
+                const d = o - l,
+                    u = Math.min(d / a, 1),
+                    m = 0 + s * u;
+                e.x = n.x + c * Math.cos(m);
+                e.y = n.y + c * Math.sin(m);
+                t.x = n.x + c * Math.cos(m + Math.PI);
+                t.y = n.y + c * Math.sin(m + Math.PI);
+                const y = document.querySelector(`.cup[data-id="${e.id}"]`),
+                    p = document.querySelector(`.cup[data-id="${t.id}"]`);
+                y && p && (y.style.left = `${e.x}px`, y.style.top = `${e.y}px`, p.style.left = `${t.x}px`, p.style.top = `${t.y}px`), u < 1 ? requestAnimationFrame(r) : i()
+            };
+        requestAnimationFrame(r)
+    })),
+    preloadImages = e => {
+        const t = [];
+        return e.forEach((e => {
+            const n = new Image;
+            n.src = e;
+            t.push(n)
+        })), t
+    };
+preloadImages(["assets/www/fon.png", "assets/www/fon2.png", "assets/www/fon3.png"]);
+const changeBackground = (e, t) => {
+    document.body.style.backgroundImage = `url('${e}')`;
+    setTimeout((() => {
+        document.body.style.backgroundImage = 'url("assets/www/fon.png")'
+    }), t)
+};
+handleClick = e => {
+    if (!canSelectCup || gameOver) return;
+    const t = document.querySelector(`.cup[data-id="${e}"]`),
+        n = document.querySelector(".ball");
+    if (canSelectCup = !1, t.classList.contains("active")) return;
+    const o = parseInt(window.getComputedStyle(t).top, 10);
+    t.style.top = o - 35 + "px";
+    t.classList.add("active");
+    setTimeout((() => {
+        e === ballUnder ? (n.style.left = `${cups[e - 1].x}px`, n.style.top = `${cups[e - 1].y}px`, n.style.display = "block", document.body.style.backgroundImage = 'url("assets/www/fon.png")', changeBackground("assets/www/fon2.png", 700), setTimeout((() => {
+            n.style.display = "none"
+        }), 500)) : (document.body.style.backgroundImage = 'url("assets/www/fon.png")', n.style.display = "none", changeBackground("assets/www/fon3.png", 700))
+    }), 200), setTimeout((() => {
+        t.style.top = `${o}px`;
+        t.classList.remove("active")
+    }), 700), window.addEventListener("resize", (() => {
+        updatePositions()
+    }));
+    setTimeout((() => {
+        e === ballUnder ? (playerBalance += currentBet, scoreButton.textContent = `${playerBalance} ₽`, NotificationManager.showNotification(` + ${currentBet} ₽`, 1500)) : (playerBalance -= currentBet, scoreButton.textContent = `${playerBalance} ₽`, NotificationManager.showNotification(` - ${currentBet} ₽`, 1500)), gameOver = !0, resetButton.disabled = !1, startButton.disabled = !1
+    }), 1e3)
+};
+let difficultyLevel = 2;
+const startGame = () => {
+    if (gameRunning) return;
+    gameRunning = !0;
+    ballUnder = Math.floor(3 * Math.random()) + 1;
+    gameOver = !1;
+    resetButton.disabled = !0;
+    confirmButton.disabled = !1;
+    startButton.disabled = !0;
+    const e = document.querySelector(".ball");
+    e.style.display = "none";
+    const t = document.querySelector(`.cup[data-id="${ballUnder}"]`);
+    if (t) {
+        const n = parseInt(window.getComputedStyle(t).top, 10);
+        t.style.top = n - 30 + "px";
+        setTimeout((() => {
+            e.style.left = `${cups[ballUnder - 1].x}px`;
+            e.style.top = `${cups[ballUnder - 1].y}px`;
+            e.style.display = "block";
+            setTimeout((() => {
+                t.style.top = `${n}px`;
+                e.style.display = "none";
+                updatePositions()
+            }), 625)
+        }), 125)
+    }
+    difficultyLevel < 5 && difficultyLevel++;
+};
+const confirmStart = async() => {
+    const e = parseInt(betInput.value);
+    if (isNaN(e) || e <= 0 || e > playerBalance) return void NotificationManager.showNotification("делай ставку", 1500);
+    currentBet = e;
+    document.querySelector(".ball").style.display = "none";
+    confirmButton.disabled = !0;
+    canSelectCup = !1;
+    await new Promise((e => {
+        canSelectCup = !1;
+        document.querySelector(".ball").style.display = "none";
+        setTimeout((async() => {
+            const t = [[cups[0], cups[1]], [cups[1], cups[2]], [cups[0], cups[2]]];
+            for (let e = 0; e < 2; e++)
+                for (let e = 0; e < t.length; e++) {
+                    const [n, o] = t[e],
+                        a = {
+                            x: (n.x + o.x) / 2,
+                            y: (n.y + o.y) / 2
+                        };
+                    await rotatePairSmooth(n, o, a, 360, 150);
+                    e < t.length - 1 && await sleep(250)
+                }
+            ballUnder = currentMove < 15 ? ballPositions[currentMove] : ballPositions[(currentMove - 15) % 14 + 1] || 1;
+            currentMove++;
+            updatePositions();
+            canSelectCup = !0;
+            NotificationManager.showNotification("какой наперсток ?", 1500);
+            e()
+        }), 500)
+    }));
+    cups.forEach((e => {
+        document.querySelector(`.cup[data-id="${e.id}"]`).onclick = () => handleClick(e.id)
+    }));
+    canSelectCup = !0;
+    gameRunning = !1;
+};
+const resetGame = () => {
+    playerBalance <= 0 ? (NotificationManager.showNotification("Да кто тебе займет нищеброд.", 1500), updateUIAfterLoss()) : (playerBalance = 2e3, scoreButton.textContent = `Баланс: ${playerBalance}`, betInput.value = "", NotificationManager.showNotification("нашел бабки сыграем", 1500), updateUIAfterLoss())
+};
+const updateUIAfterLoss = () => {
+    playerBalance <= 0 ? (betButton.style.display = "none", startButton.style.display = "none", confirmButton.style.display = "none", resetButton.style.display = "inline-block", resetButton.disabled = !1) : (betButton.style.display = "inline-block", startButton.style.display = "inline-block", confirmButton.style.display = "inline-block", resetButton.style.display = "none")
+};
+const borrowMoney = () => {
+    if (0 === playerBalance) {
+        sound50.play();
+        const e = Math.floor(901 * Math.random()) + 100;
+        playerBalance += e;
+        scoreButton.textContent = ` ${playerBalance}`;
+        NotificationManager.showNotification(`займ  ${playerBalance}`);
+        updateUIAfterLoss()
+    }
+};
+const updateBorrowButton = () => {
+    resetButton.disabled = !1;
+    sound50.play()
+};
+document.addEventListener("DOMContentLoaded", (() => {
+    const e = document.getElementById("decrement"),
+        t = document.getElementById("increment"),
+        n = document.getElementById("betInput");
+    if (!e || !t || !n) return;
+    const o = parseInt(n.getAttribute("min")) || 1,
+        a = parseInt(n.getAttribute("max")) || 1e3;
+    e.addEventListener("click", (() => {
+        let e = parseInt(n.value) || o;
+        n.value = Math.max(o, e - 1)
+    }));
+    t.addEventListener("click", (() => {
+        let e = parseInt(n.value) || o;
+        n.value = Math.min(a, e + 1)
+    }));
+    n.addEventListener("input", (() => {
+        let e = parseInt(n.value);
+        isNaN(e) || e < o ? n.value = o : e > a && (n.value = a)
+    }))
+}));
+let initialScale = window.devicePixelRatio || 1;
+function adjustScale() {
+    const e = window.devicePixelRatio || 1,
+        t = initialScale / e;
+    document.body.style.transform = `scale(${t})`;
+    document.body.style.transformOrigin = "0 0";
+    document.body.style.width = 100 / t + "%";
+    document.body.style.height = 100 / t + "%"
+}
+window.addEventListener("resize", adjustScale);
+window.addEventListener("DOMContentLoaded", adjustScale);
+resetButton.onclick = borrowMoney;
+startButton.onclick = startGame;
+confirmButton.onclick = confirmStart;
+updatePositions();
+document.querySelector(".exit-button").addEventListener("click", (function() {
+    window.AndroidInterface ? window.AndroidInterface.exitToHomeScreen() : window.location.href = "https://www.google.com"
+}));
+const ball = document.createElement("div");
+ball.className = "ball";
+updatePositions();
+resetButton.disabled = !1;
+startButton.addEventListener("click", () => {
+    if (sound50 && sound50.paused) {
+        sound50.play().catch(() => {});
+    }
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+    }
+});
