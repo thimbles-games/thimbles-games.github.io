@@ -1,0 +1,34 @@
+﻿
+FullName                                                     
+--------                                                     
+V:\thimbles-games.github.io-main\assets\www                  
+V:\thimbles-games.github.io-main\assets\icon.ico             
+V:\thimbles-games.github.io-main\assets\project_structure.txt
+V:\thimbles-games.github.io-main\assets\www\гиф              
+V:\thimbles-games.github.io-main\assets\www\33.mp3           
+V:\thimbles-games.github.io-main\assets\www\cloud01.png      
+V:\thimbles-games.github.io-main\assets\www\cloud02.png      
+V:\thimbles-games.github.io-main\assets\www\cloud03.png      
+V:\thimbles-games.github.io-main\assets\www\cloud04.png      
+V:\thimbles-games.github.io-main\assets\www\fon.gif          
+V:\thimbles-games.github.io-main\assets\www\fon.png          
+V:\thimbles-games.github.io-main\assets\www\fon2.png         
+V:\thimbles-games.github.io-main\assets\www\fon3.png         
+V:\thimbles-games.github.io-main\assets\www\off.png          
+V:\thimbles-games.github.io-main\assets\www\on.png           
+V:\thimbles-games.github.io-main\assets\www\qrcode2.png      
+V:\thimbles-games.github.io-main\assets\www\segoeprint.ttf   
+V:\thimbles-games.github.io-main\assets\www\stak.png         
+V:\thimbles-games.github.io-main\assets\www\гиф\fon.png      
+V:\thimbles-games.github.io-main\assets\www\гиф\fon11.png    
+V:\thimbles-games.github.io-main\assets\www\гиф\fon2.png     
+V:\thimbles-games.github.io-main\assets\www\гиф\fon21.png    
+
+английский 
+испанский
+китайский упрощенный
+немецкий 
+французкий
+японский 
+и по умолчанию русский 
+
