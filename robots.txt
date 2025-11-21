@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://thimbles-games.github.io/sitemap.xml
+Sitemap: https://money-thimbles.fun/sitemap.xml
