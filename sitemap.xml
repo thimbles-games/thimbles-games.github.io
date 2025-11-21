@@ -8,5 +8,10 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://money-thimbles.fun/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://money-thimbles.fun/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://money-thimbles.fun/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://money-thimbles.fun/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://money-thimbles.fun/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://money-thimbles.fun/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://money-thimbles.fun/"/>    
   </url>
 </urlset>
