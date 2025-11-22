@@ -13,7 +13,6 @@ const ASSETS = [
   "/assets/www/cloud02.png",
   "/assets/www/cloud03.png",
   "/assets/www/cloud04.png",
-  "/assets/www/fon.gif",
   "/assets/www/fon.png",
   "/assets/www/fon2.png",
   "/assets/www/fon3.png",
@@ -21,12 +20,7 @@ const ASSETS = [
   "/assets/www/on.png",
   "/assets/www/qrcode2.png",
   "/assets/www/segoeprint.ttf",
-  "/assets/www/stak.png",
-
-  "/assets/www/гиф/fon.png",
-  "/assets/www/гиф/fon11.png",
-  "/assets/www/гиф/fon2.png",
-  "/assets/www/гиф/fon21.png"
+  "/assets/www/stak.png"
 ];
 
 self.addEventListener("install", (event) => {
